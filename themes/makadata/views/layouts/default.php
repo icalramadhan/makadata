@@ -77,12 +77,12 @@
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="customer-orders.html" method="post">
+              <form action="<?php echo base_url('auth/member');?>" method="post">
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input name="identitiy" id="email_modal" type="text" placeholder="username" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="password" class="form-control">
+                  <inpunamat id="password_modal" type="password" placeholder="password" class="form-control">
                 </div>
                 <p class="text-center">
                   <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>

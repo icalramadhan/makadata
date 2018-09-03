@@ -26,7 +26,7 @@
 
 if (!empty($catalogs)) {
     foreach ($catalogs as $key => $value) {
-        echo '<div class="col-lg-3 col-md-4">';
+        echo '<div class="col-lg-2 col-md-2">';
         echo '<div class="product">';
         echo '<div class="image"><a href="' . base_url('catalogs/product/' . $value->id) . '"><img src="' . base_url($value->img_thumb) . '" alt="" class="img-fluid image1"></a></div>';
         echo '<div class="text">';

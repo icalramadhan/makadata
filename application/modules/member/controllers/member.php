@@ -10,6 +10,7 @@ class Member extends Member_Controller {
         parent::__construct();
         //SHOW LEFT WIDGETS
         $this->data['nav_active'] = 'profiles';
+        $this->data['page_desc'] = 'Halaman Member';
     }
 
     public function index() {
