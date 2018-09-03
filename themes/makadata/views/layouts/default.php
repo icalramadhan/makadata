@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row d-flex align-items-center">
             <div class="col-md-6 d-md-block d-none">
-              <p>Contact us on 0856 5560 5014.</p>
+              <p>Contact us on 0856 5560 5014. + 031</p>
             </div>
             <div class="col-md-6">
               <div class="d-flex justify-content-md-end justify-content-between">
