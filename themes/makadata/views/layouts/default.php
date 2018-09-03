@@ -82,7 +82,7 @@
                   <input name="identitiy" id="email_modal" type="text" placeholder="username" class="form-control">
                 </div>
                 <div class="form-group">
-                  <inpunamat id="password_modal" type="password" placeholder="password" class="form-control">
+                  <input name="password" id="password_modal" type="password" placeholder="password" class="form-control">
                 </div>
                 <p class="text-center">
                   <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
