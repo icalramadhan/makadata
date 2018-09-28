@@ -52,15 +52,26 @@
                   <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                 </ul>
                 <div class="login">
+                    <?php if(!$this->ion_auth->logged_in()) {?>
                     <a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn">
                         <i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span>
                     </a>
                     <a href="customer-register.html" class="signup-btn">
                       <i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span>
                     </a>
-                    <a href="<?php echo base_url('order/detail'); ?>" class="signup-btn">
-                      <i class="fa fa-cart"></i><span class="d-none d-md-inline-block">My Order</span>
+                  <?php } else { ?>
+                    <a href="<?php echo base_url('member'); ?>" class="signup-btn">
+                      <i class="fa fa-user"></i><span class="d-none d-md-inline-block">My Account</span>
                     </a>
+                  <?php } ?>
+                    <a href="<?php echo base_url('order/detail'); ?>" class="signup-btn">
+                      <i class="fa fa-shopping-cart"></i><span class="d-none d-md-inline-block">My Cart</span>
+                    </a>
+                    <?php if($this->ion_auth->logged_in()) {?>
+                    <a href="<?php echo base_url('auth/logout'); ?>" class="signup-btn">
+                      <i class="fa fa-sign-out"></i><span class="d-none d-md-inline-block">Logout</span>
+                    </a>
+                    <?php } ?>
                 </div>
               </div>
             </div>
@@ -77,13 +88,14 @@
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="<?php echo base_url('auth/member');?>" method="post">
+              <form action="<?php echo base_url('auth/login');?>" method="post">
                 <div class="form-group">
-                  <input name="identitiy" id="email_modal" type="text" placeholder="username" class="form-control">
+                  <input name="identity" id="email_modal" type="text" placeholder="username" class="form-control">
                 </div>
                 <div class="form-group">
                   <input name="password" id="password_modal" type="password" placeholder="password" class="form-control">
                 </div>
+                  <input name="ref_form" type="hidden" placeholder="password" class="form-control" value="member">
                 <p class="text-center">
                   <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
                 </p>
@@ -411,64 +423,6 @@
       
       <!-- FOOTER -->
       <footer class="main-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3">
-              <h4 class="h6">About Us</h4>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              <hr>
-              <h4 class="h6">Join Our Monthly Newsletter</h4>
-              <form>
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <div class="input-group-append">
-                    <button type="button" class="btn btn-secondary"><i class="fa fa-send"></i></button>
-                  </div>
-                </div>
-              </form>
-              <hr class="d-block d-lg-none">
-            </div>
-            <div class="col-lg-3">
-              <h4 class="h6">Blog</h4>
-              <ul class="list-unstyled footer-blog-list">
-                <li class="d-flex align-items-center">
-                  <div class="image"><img src="img/detailsquare.jpg" alt="..." class="img-fluid"></div>
-                  <div class="text">
-                    <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
-                  </div>
-                </li>
-                <li class="d-flex align-items-center">
-                  <div class="image"><img src="img/detailsquare.jpg" alt="..." class="img-fluid"></div>
-                  <div class="text">
-                    <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
-                  </div>
-                </li>
-                <li class="d-flex align-items-center">
-                  <div class="image"><img src="img/detailsquare.jpg" alt="..." class="img-fluid"></div>
-                  <div class="text">
-                    <h5 class="mb-0"> <a href="post.html">Very very long blog post name</a></h5>
-                  </div>
-                </li>
-              </ul>
-              <hr class="d-block d-lg-none">
-            </div>
-            <div class="col-lg-3">
-              <h4 class="h6">Contact</h4>
-              <p class="text-uppercase"><strong>Universal Ltd.</strong><br>13/25 New Avenue <br>Newtown upon River <br>45Y 73J <br>England <br><strong>Great Britain</strong></p><a href="contact.html" class="btn btn-template-main">Go to contact page</a>
-              <hr class="d-block d-lg-none">
-            </div>
-            <div class="col-lg-3">
-              <ul class="list-inline photo-stream">
-                <li class="list-inline-item"><a href="#"><img src="img/detailsquare.jpg" alt="..." class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="img/detailsquare2.jpg" alt="..." class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="img/detailsquare3.jpg" alt="..." class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="img/detailsquare3.jpg" alt="..." class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="img/detailsquare2.jpg" alt="..." class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="img/detailsquare.jpg" alt="..." class="img-fluid"></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div class="copyrights">
           <div class="container">
             <div class="row">

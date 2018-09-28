@@ -50,7 +50,12 @@ echo '</tr>';
 echo '</tfoot>';
 echo '</table>';
 echo '<div class="box-footer d-flex flex-wrap align-items-center justify-content-between">';
-echo '<div class="left-col"><a href="' . base_url() . '"Home" class="btn btn-template-outlined"><i class="fa fa-chevron-left"></i> Continue Shopping</a></div><div class="right-col"> <a href="' . base_url() . 'order/delete/all" class="btn btn-danger"> Delete Cart </a>  <a href="'. base_url() . 'order/payment"  class="btn btn-template-outlined">Proceed to CheckOut <i class="fa fa-chevron-right"></i></a></div>';
+echo '<div class="left-col"><a href="' . base_url() . '"Home" class="btn btn-template-outlined"><i class="fa fa-chevron-left"></i> Continue Shopping</a></div>';
+echo '<div class="right-col">';
+if(!empty($cart)) {
+echo '<a href="' . base_url() . 'order/delete/all" class="btn btn-danger"> Empty Cart </a>  <a href="'. base_url() . 'order/payment"  class="btn btn-template-outlined">Proceed to CheckOut <i class="fa fa-chevron-right"></i></a>';
+}
+echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</div>';

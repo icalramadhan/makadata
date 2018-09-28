@@ -15,10 +15,10 @@
 */
 
 $config['crumb_divider'] = '';
-$config['tag_open'] = '<ol class="breadcrumb">';
+$config['tag_open'] = '<ol class="breadcrumb d-flex justify-content-end">';
 $config['tag_close'] = '</ol>';
-$config['crumb_open'] = '<li>';
-$config['crumb_last_open'] = '<li class="active">';
+$config['crumb_open'] = '<li class="breadcrumb-item">';
+$config['crumb_last_open'] = '<li class="breadcrumb-item active">';
 $config['crumb_close'] = '</li>';
 
 

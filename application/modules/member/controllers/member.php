@@ -10,7 +10,7 @@ class Member extends Member_Controller {
         parent::__construct();
         //SHOW LEFT WIDGETS
         $this->data['nav_active'] = 'profiles';
-        $this->data['page_desc'] = 'Halaman Member';
+        $this->data['page_desc'] = 'My Account';
     }
 
     public function index() {
@@ -26,12 +26,12 @@ class Member extends Member_Controller {
         $this->template->build('index', $this->data);
     }
 
-    public function profile() {
-        $this->set_title('My Profile');
-        $this->breadcrumbs->push('My Profile', 'member/profile');
-        $this->data['subnav_active'] = 'my-profile';
+    public function myaccount() {
+        $this->set_title('My Account');
+        $this->breadcrumbs->push('My Account', 'member/myaccount');
+        $this->data['subnav_active'] = 'my-account';
 
-        $this->template->build('profile', $this->data);
+        $this->template->build('myaccount', $this->data);
     }
 
     public function edit() {

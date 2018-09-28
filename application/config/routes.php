@@ -52,7 +52,7 @@ $route['admin/users/groups/(:any)'] = 'users/admin_groups/$1';
 $route['admin/users/groups'] = 'users/admin_groups/index';
 
 /*MEMBER DAHSBOARD ROUTING */
-$route['member/profile'] = 'member/profile';
+$route['member/myaccount'] = 'member/myaccount';
 $route['member/register'] = 'auth/register';
 $route['member/edit'] = 'member/edit';
 $route['member/password'] = 'member/password';

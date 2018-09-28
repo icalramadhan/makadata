@@ -48,7 +48,12 @@ class Auth extends Public_Controller {
     }
 
     public function member() {
+        $this->template->set_theme('makadata');
+        $this->set_url_assets();
+        $this->template->set_layout('default');
         $this->set_title('Member Login');
+        $this->breadcrumbs->push('Login', 'member/auth');
+        $data['page_desc'] = 'Login Member';
 
         if ($this->ion_auth->logged_in()) {
             // redirect them to the admin page
@@ -159,8 +164,9 @@ class Auth extends Public_Controller {
         /* SET THEME END */
         $this->set_title('Member Registration Form');
         $this->breadcrumbs->push('Register New Member', 'member/register');
+        $data['page_desc'] = 'Register Member';
 
-        $this->template->build('register', $this->data);
+        $this->template->build('register', $data);
     }
 
     function activate($id, $code = false) {
