@@ -234,4 +234,21 @@ class Order_m extends CI_Model {
         return $query->result();
     }
 
+
+    public function get_order($userid) {
+        $sql = "SELECT MO.*,";
+        $sql .= "CASE WHEN MO.intstatusbayar = 0 THEN 'Tunggu Pembayaran' WHEN MO.intstatusbayar = 1 THEN 'Konfirmasi'  WHEN MO.intstatusbayar = 2 THEN 'Pembayaran Diterima' ELSE 'Tidak ada status' END as vcstatusbayar, ";
+        $sql .= "CASE WHEN MO.intstatusorder = 0 THEN 'Tunggu Pembayaran' WHEN MO.intstatusorder = 1 THEN 'Proses Order' WHEN MO.intstatusorder = 2 THEN 'Pengiriman'  WHEN MO.intstatusorder = 3 THEN 'Selesai' ELSE 'Tidak ada status' END as vcstatusorder";
+        $sql .= " FROM md_order MO ";
+        $sql .= "WHERE user_create = ? ";
+        $sql .= "ORDER BY MO.dtorderdate";
+
+        $query = $this->db->query($sql, array($userid));
+        if ($query->num_rows() == 0) {
+            return array();
+        }
+
+        return $query->result();
+    }
+
 }

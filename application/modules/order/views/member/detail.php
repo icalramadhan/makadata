@@ -2,7 +2,7 @@
         <div class="container">
           <div class="row bar">
             <div id="customer-order" class="col-lg-9">
-              <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
+              <p class="lead">Order<strong> <?php echo $order->vcordercode; ?></strong> was placed on <strong><?php echo mdate('%d-%m-%Y %H:%i:%s', strtotime($order->dtorderdate)); ?></strong> and is currently <strong><?php echo $order->vcstatusbayar; ?></strong>.</p>
               <p class="lead text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
               <div class="box">
                 <div class="table-responsive">
@@ -16,17 +16,24 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                        // var_dump($detail);
+                        if(!empty($detail)) { 
+                        foreach($detail as $val) { ?>
                       <tr>
-                        <td>White Blouse Armani</td>
-                        <td>2</td>
-                        <?php echo '<td>Rp.' . number_format (0, 2) . '</td>';?>
-                        <?php echo '<td>Rp.' . number_format (0, 2) . '</td>';?>
+                      <?php
+                      echo '<td>' . $val->vcnamaproduct. '</td>';
+                      echo '<td>' . intval($val->intqty) . '</td>';
+                      echo '<td>Rp.' . number_format($val->decprice, 2) . '</td>';
+                      echo '<td>Rp.' . number_format($val->dectotalprice, 2) .'</td>';
+                      ?>
                       </tr>
+                    <?php }} ?>
                     </tbody>
                     <tfoot>
                       <tr>
                         <th colspan="3" class="text-right">Order subtotal</th>
-                        <?php echo '<th>Rp.' . number_format (0, 2) . '</th>';?>
+                        <?php echo '<th>Rp.' . number_format ($order->dectotal, 2) . '</th>';?>
                       </tr>
                       <tr>
                         <th colspan="3" class="text-right">Shipping and handling</th>

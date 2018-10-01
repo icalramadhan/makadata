@@ -51,29 +51,12 @@ class Member extends Member_Controller {
 
     public function index() {
         $this->set_title('My Orders');
-        // if ($this->input->post('products_search') != "") {
-        //     $this->param[] = array('field' => 'prod_name', 'param' => '', 'operator' => 'LIKE', 'value' => '%' . $this->input->post('products_search') . '%');
-        //     $this->data['search'] = $this->input->post('products_search');
-        // }
-        // //PAGING OPTION
-        // $total_row = $this->_db->count_all($this->param);
-        // $limit = 10;
-        // $this->data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        // $this->_paginate('member/catalogs', $total_row, $limit);
-        // $data_barang = $this->_db->get_all($this->param, null, $limit, $this->data['page']);
-        // if (!empty($data_barang)) {
-        //     foreach ($data_barang as $key => $value) {
-        //         $get_img = $this->_db->get_thumb($value->id);
-        //         $data_barang[$key]->img_thumb = $get_img == null ? 'assets/modules/catalogs/default-image.jpg' : $get_img->prod_thumb_url;
-        //     }
-        // }
-        // $this->data['list'] = $data_barang;
-        // $this->data['count_data'] = $total_row;
+        $data_order = $this->_db->get_order($this->user->id);
+        
+        $this->data['list'] = $data_order;
+        
         $this->data['page_desc'] = 'Daftar Order';
-        // $this->data['msg'] = $this->session->flashdata('msg');
-        //SHOW LEFT WIDGETS
-        // $this->data['left_widgets'] = $this->widget->show_widget('left');
-
+        
         $this->template->build('member/index', $this->data);
     }
 
@@ -222,6 +205,8 @@ class Member extends Member_Controller {
         $this->set_title('Detail Orders');
         $this->breadcrumbs->push('Detail', 'member/order/detail/' . $id);
         $this->data['page_desc'] = 'Detail Selected Orders';
+        $this->data['order'] = $this->_db->get_detail('MO.id', $id);
+        $this->data['detail'] = $this->_db->get_detail_order('intorderid', $id);
 
         $this->template->build('member/detail', $this->data);
     }

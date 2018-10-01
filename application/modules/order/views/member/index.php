@@ -4,54 +4,62 @@
           <div class="row bar mb-0">
             <div id="customer-orders" class="col-md-9">
               <p class="text-muted lead">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
-              <div class="box mt-0 mb-lg-0">
+              <div class="box mt-0 mb-lg-12">
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>Order</th>
+                        <th width="10%">Order</th>
                         <th>Date</th>
-                        <th>Total</th>
-                        <th>Status</th>
+                        <th class="text-right">Total</th>
+                        <th class="text-center">Status Bayar</th>
+                        <th class="text-center">Status Order</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th># 1735</th>
-                        <td>22/06/2013</td>
-                        <?php echo '<td><b>Rp.' . number_format (0, 2) . '</b></td>';?>
-                        <td><span class="badge badge-info">Being prepared</span></td>
-                        <td><a href="<?php echo base_url('member/order/detail/12');?>" class="btn btn-template-outlined btn-sm">View</a></td>
-                      </tr>
-                      <tr>
-                        <th># 1735</th>
-                        <td>22/06/2013</td>
-                        <?php echo '<td><b>Rp.' . number_format (0, 2) . '</b></td>';?>
-                        <td><span class="badge badge-info">Being prepared</span></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">View</a></td>
-                      </tr>
-                      <tr>
-                        <th># 1735</th>
-                        <td>22/06/2013</td>
-                        <?php echo '<td><b>Rp.' . number_format (0, 2) . '</b></td>';?>
-                        <td><span class="badge badge-success">Received</span></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">View</a></td>
-                      </tr>
-                      <tr>
-                        <th># 1735</th>
-                        <td>22/06/2013</td>
-                        <?php echo '<td><b>Rp.' . number_format (0, 2) . '</b></td>';?>
-                        <td><span class="badge badge-danger">Cancelled</span></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">View</a></td>
-                      </tr>
-                      <tr>
-                        <th># 1735</th>
-                        <td>22/06/2013</td>
-                        <?php echo '<td><b>Rp.' . number_format (0, 2) . '</b></td>';?>
-                        <td><span class="badge badge-warning">On hold</span></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">View</a></td>
-                      </tr>
+                      <?php
+                        if (!empty($list)) {
+                          foreach ($list as $key => $value) {
+                            echo '<tr>';
+                            echo '<td><a class="text-info" href="' . base_url('member/order/detail/' . $value->id) . '">' . $value->vcordercode . '</a></td>';
+                            echo '<td class="small">' . mdate('%d-%m-%Y %H:%i:%s', strtotime($value->dtorderdate)) . '</td>';
+                            echo '<td class="text-right">' . number_format($value->dectotal, 2) . '</td>';
+                            echo '<td class="text-center">';
+                              if($value->intstatusbayar == 0) {
+                                echo '<span class="badge badge-info">' . $value->vcstatusbayar . '</span>';
+                                } else if($value->intstatusbayar == 1) {
+                                    echo '<span class="label label-info">' . $value->vcstatusbayar . '</span> - ';
+                                    echo ' <a class="label label-danger" href="' . base_url('admin/order/detail/' . $value->id) . '"><i class="fa fa-check"></i> Confirm</a>';
+                                } else if($value->intstatusbayar == 2) {
+                                    echo '<span class="badge badge-success">' . $value->vcstatusbayar . '</span>';
+                                } else {
+                                    echo '<span class="badge badge-info">' . $value->vcstatusbayar . '</span>';
+                                }
+                                echo '</td>';
+                                echo '<td class="text-center">';
+                              if($value->intstatusorder == 0) {
+                                echo '<span class="badge badge-danger">' . $value->vcstatusorder . '</span>';
+                                } else if($value->intstatusorder == 1) {
+                                echo '<span class="label label-info">' . $value->vcstatusorder . '</span>';
+                                echo ' <a class="badge badge-danger" href="' . base_url('admin/order/detail/' . $value->id) . '"><i class="fa fa-truck"></i> Shipping</a>';
+                                } else if($value->intstatusorder == 2) {
+                                echo '<span class="badge badge-info">' . $value->vcstatusorder . '</span>';
+                                } else if($value->intstatusorder == 3) {
+                                echo '<span class="badge badge-success">' . $value->vcstatusorder . '</span>';
+                                } else {
+                                echo '<span class="badge badge-info">' . $value->vcstatusorder . '</span>';
+                                }
+                                echo '</span></td>';
+                                echo '<td><a href="' . base_url('member/order/detail/' . $value->id) .'"  class="btn btn-template-outlined btn-sm">View</a></td>';
+                                echo '</tr>';
+                          }
+                        } else {
+                          echo '<tr>';
+                          echo '<td colspan="6"><span class="text-danger">Tidak ada data</span></td>';
+                          echo '</tr>';
+                        }
+                        ?>
                     </tbody>
                   </table>
                 </div>
