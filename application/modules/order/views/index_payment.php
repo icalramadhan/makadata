@@ -84,7 +84,7 @@
 								<div class="left-col"><a href="<?php echo base_url('order/detail'); ?>" class="btn btn-template-outlined mt-0"><i class="fa fa-chevron-left">		</i>Back to Order Detail</a>
 								</div>
 								<div class="right-col">
-									<button type="submit" class="btn btn-template-outlined">Review Order<i class="fa fa-chevron-right"></i></button>
+									<a href="<?php echo base_url('order/checkout');?>" class="btn btn-template-outlined">Review Order<i class="fa fa-chevron-right"></i></a>
 								</div>
 							</div>
 						</div>	

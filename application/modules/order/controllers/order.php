@@ -54,6 +54,24 @@ class Order extends Public_Controller {
         $this->template->build('index', $this->data);
     }
 
+    public function checkout() {
+        $this->data['page_desc'] = "Rincian Pembayaran";
+        $insert_data = array(
+            'fname' => $this->input->post('fname'),
+            'lname' => $this->input->post('lname'),
+            'street' => $this->input->post('street'),
+            'state' => $this->input->post('state'),
+            'city' => $this->input->post('city'),
+            'ongkir' => $this->input->post('ongkir'),
+            'telephone' => $this->input->post('telephone'),
+            'email' => $this->input->post('email'),
+            'payment' => $this->input->post('checkout')
+        );
+
+        $this->cart->insert($insert_data);
+        $this->template->build('index_checkout', $this->data);
+    }
+
     public function detail() {
         $this->data['page_desc'] = "My Cart";
         $this->data['cart'] = $this->cart->contents();
@@ -71,7 +89,7 @@ class Order extends Public_Controller {
         $this->data['city'] =  json_decode($this->rajaongkir->city(), true);
         $province = json_decode($this->rajaongkir->province(), true);
         array_push($props, $prop_arr);
-        foreach($province['rajaongkir']['results'] as $val) {
+        foreach ($province['rajaongkir']['results'] as $val) {
             array_push($props, array(
                 'province_id' => $val['province_id'],
                 'province' => $val['province']
