@@ -3,7 +3,7 @@
 		<div class="row">
 			<div id="checkout" class="col-lg-9">
 				<div class="box border-bottom-0">
-					<form method="post" action="<?php base_url('order/checkout');?>">
+					<form method="post" action="<?php echo base_url('order/checkout');?>">
 						<div class="content">
 							<div class="row">
 								<div class="col-sm-6">
