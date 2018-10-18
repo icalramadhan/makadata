@@ -9,25 +9,25 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="firstname">Firstname</label>
-										<input id="firstname" type="text" class="form-control">
+										<input name="vcfname" id="firstname" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="lastname">Lastname</label>
-										<input id="lastname" type="text" class="form-control">
+										<input name="vclname" id="lastname" type="text" class="form-control">
 									</div>
 								</div>
 									<div class="col-sm-12">
 										<div class="form-group">
 											<label for="company">Street</label>
-											<input id="company" type="text" class="form-control">
+											<input name="vcstreet" id="company" type="text" class="form-control">
 										</div>
 									</div>
 					                <div class="col-sm-6">
 										<div class="form-group">
 									  		<label for="selectprop">State</label>
-									  		<select class="form-control" id="selectprop">
+									  		<select name="vcstate" class="form-control" id="selectprop">
 									  			<?php
 													foreach($province as $val) {
 														echo '<option value="'. $val['province_id'].'">'.$val['province'].'</option>';
@@ -39,7 +39,7 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label for="city">City</label>
-											<select class="form-control" id="selectcity">
+											<select name="vccity" class="form-control" id="selectcity">
 												<?php
 												?>
 											</select>
@@ -61,25 +61,25 @@
 		                      		<div class="col-sm-3">
 		                        		<div class="form-group">
 					                    	<label for="phone">Telephone</label>
-					                        <input id="phone" type="text" class="form-control">
+					                        <input name="inttelephone" id="phone" type="text" class="form-control">
 		                       			</div>
 		                      		</div>
 		                      		<div class="col-sm-3">
 		                        		<div class="form-group">
 		                          			<label for="email">Email</label>
-											<input id="email" type="text" class="form-control">
+											<input name="vcemail" id="email" type="text" class="form-control">
 										</div>
 									</div>
 									<div class="col-sm-3">
 										<div class="form-group">
 									  		<label for="selmethod">Payment</label>
-									  		<select class="form-control" id="selmethod">
+									  		<select name="vcpayment" class="form-control" id="selmethod">
 											    <option>Transfer Bank</option>
 											    <option>Cash On Delivery</option>
 											</select>
 										</div>
 									</div>
-							</div>
+								</div>
 							<div class="box-footer d-flex flex-wrap align-items-center justify-content-between">
 								<div class="left-col"><a href="<?php echo base_url('order/detail'); ?>" class="btn btn-template-outlined mt-0"><i class="fa fa-chevron-left">		</i>Back to Order Detail</a>
 								</div>
