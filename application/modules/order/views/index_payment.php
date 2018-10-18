@@ -3,7 +3,7 @@
 		<div class="row">
 			<div id="checkout" class="col-lg-9">
 				<div class="box border-bottom-0">
-					<form method="post" action="shop-checkout2.html">
+					<form method="post" action="<?php base_url('order/checkout');?>">
 						<div class="content">
 							<div class="row">
 								<div class="col-sm-6">
@@ -84,7 +84,7 @@
 								<div class="left-col"><a href="<?php echo base_url('order/detail'); ?>" class="btn btn-template-outlined mt-0"><i class="fa fa-chevron-left">		</i>Back to Order Detail</a>
 								</div>
 								<div class="right-col">
-									<a href="<?php echo base_url('order/checkout');?>" class="btn btn-template-outlined">Review Order<i class="fa fa-chevron-right"></i></a>
+									<button type="submit" class="btn btn-template-outlined">Review Order<i class="fa fa-chevron-right"></i></button>
 								</div>
 							</div>
 						</div>	

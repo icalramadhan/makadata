@@ -56,19 +56,21 @@ class Order extends Public_Controller {
 
     public function checkout() {
         $this->data['page_desc'] = "Rincian Pembayaran";
-        $insert_data = array(
-            'fname' => $this->input->post('fname'),
-            'lname' => $this->input->post('lname'),
-            'street' => $this->input->post('street'),
-            'state' => $this->input->post('state'),
-            'city' => $this->input->post('city'),
-            'ongkir' => $this->input->post('ongkir'),
-            'telephone' => $this->input->post('telephone'),
-            'email' => $this->input->post('email'),
+        $this->data['user_data'] = array(
+            'fname' => $this->input->post('vcfname'),
+            'lname' => $this->input->post('vclname'),
+            'street' => $this->input->post('vcstreet'),
+            'state' => $this->input->post('vcstate'),
+            'city' => $this->input->post('vccity'),
+            'ongkir' => $this->input->post('intongkir'),
+            'telephone' => $this->input->post('inttelephone'),
+            'email' => $this->input->post('vcemail'),
             'payment' => $this->input->post('checkout')
         );
+        $this->data['cart'] = $this->cart->contents();
 
-        $this->cart->insert($insert_data);
+        // $this->data['user_data'] = $this->user_data->contents();
+
         $this->template->build('index_checkout', $this->data);
     }
 
