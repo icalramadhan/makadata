@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row d-flex align-items-center">
             <div class="col-md-6 d-md-block d-none">
-              <p>Contact us on 0856 5560 5014. + 031</p>
+              <p>Contact Us On 0821 4356 2925</p>
             </div>
             <div class="col-md-6">
               <div class="d-flex justify-content-md-end justify-content-between">
@@ -255,9 +255,7 @@
                         <div class="col-md-6 col-lg-3">
                           <h5>Contact</h5>
                           <ul class="list-unstyled mb-3">
-                            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                            <li class="nav-item"><a href="contact2.html" class="nav-link">Contact - version 2</a></li>
-                            <li class="nav-item"><a href="contact3.html" class="nav-link">Contact - version 3</a></li>
+                            <li class="nav-item"><a href=contact.html" class="nav-link">Contact Us</a></li>
                           </ul>
                           <h5>Pages</h5>
                           <ul class="list-unstyled mb-3">
@@ -283,9 +281,7 @@
                 <!-- ========== Contact dropdown ==================-->
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Contact <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="contact.html" class="nav-link">Contact option 1</a></li>
-                    <li class="dropdown-item"><a href="contact2.html" class="nav-link">Contact option 2</a></li>
-                    <li class="dropdown-item"><a href="contact3.html" class="nav-link">Contact option 3</a></li>
+                    <li class="dropdown-item"><a href="<?php echo base_url('contacts/Contact'); ?>" class="nav-link">Contact Us</a></li>
                   </ul>
                 </li>
                 <!-- ========== Contact dropdown end ==================-->
