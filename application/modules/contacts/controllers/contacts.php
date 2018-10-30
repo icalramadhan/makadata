@@ -27,6 +27,7 @@ class Contacts extends Public_Controller {
 
     public function contact() {
         $this->data['page_desc'] = "Contact Us";
+        $this->breadcrumbs->push('Contact Us', 'contacts');
 
         $this->template->build('contactus', $this->data);
     }

@@ -281,7 +281,7 @@
                 <!-- ========== Contact dropdown ==================-->
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Contact <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="<?php echo base_url('contacts/Contact'); ?>" class="nav-link">Contact Us</a></li>
+                    <li class="dropdown-item"><a href="<?php echo base_url('contacts/contact'); ?>" class="nav-link">Contact Us</a></li>
                   </ul>
                 </li>
                 <!-- ========== Contact dropdown end ==================-->
