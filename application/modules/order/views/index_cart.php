@@ -14,6 +14,7 @@ echo '</thead>';
 echo '<tbody>';
 if(!empty($cart)) {
     $total = 0;
+    
     foreach ($cart as $items) {
     echo '<tr>';
     echo '<td>' . $items['name']. '</td>';

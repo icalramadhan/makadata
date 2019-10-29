@@ -17,7 +17,7 @@
                 <div class="box-simple">
                   <div class="icon-outlined"><i class="fa fa-map-marker"></i></div>
                   <h3 class="h4">Address</h3>
-                  <p>Jalan Dharmahusada No.56<br>                                        Surabaya, 60285<br>                                        Jawa Timur,  <strong>Indonesia</strong></p>
+                  <p>Jalan Dharmahusada No.78F<br>                                        Surabaya, 60285<br>                                        Jawa Timur,  <strong>Indonesia</strong></p>
                 </div>
               </div>
               <div class="col-md-4">

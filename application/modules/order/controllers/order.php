@@ -65,7 +65,11 @@ class Order extends Public_Controller {
             'intongkir' => $this->input->post('intongkir'),
             'inttelephone' => $this->input->post('inttelephone'),
             'vcemail' => $this->input->post('vcemail'),
-            'vcpayment' => $this->input->post('vcpayment')
+            'vcpayment' => $this->input->post('vcpayment'),
+             'nama_state' => $this->input->post('nama_state'),
+             'nama_city' => $this->input->post('nama_city'),
+             'ongkir' => $this->input->post('ongk')
+
         );
         $this->data['cart'] = $this->cart->contents();
 

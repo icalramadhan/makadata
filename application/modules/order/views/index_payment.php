@@ -24,18 +24,23 @@
 											<input name="vcstreet" id="company" type="text" class="form-control">
 										</div>
 									</div>
+									<input type="hidden" name="ongk" id="ongk">
 					                <div class="col-sm-6">
 										<div class="form-group">
 									  		<label for="selectprop">State</label>
 									  		<select name="vcstate" class="form-control" id="selectprop">
 									  			<?php
 													foreach($province as $val) {
-														echo '<option value="'. $val['province_id'].'">'.$val['province'].'</option>';
+														echo '<option name='.$val['province'].' value="'. $val['province_id'].'">'.$val['province'].'</option>';
 													}
 												?>
 											</select>
+											
 										</div>
+
 									</div>
+									<input type="hidden" name="nama_state" id="nama_state">
+									<input type="hidden" name="nama_city" id="nama_city">
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label for="city">City</label>

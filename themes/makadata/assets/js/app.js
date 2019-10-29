@@ -38,6 +38,8 @@ $(function () {
 
     // Automatic get City
     $( "#selectprop" ).change(function() {
+         console.log("ini data: ",$(this).find("option:selected").text());
+          $("#nama_state").val($(this).find("option:selected").text());
         var val = $(this).val();
         // alert(val);
         $.ajax({
@@ -64,7 +66,11 @@ $(function () {
         });
     });
 
+                
+ 
      $( "#selectcity" ).change(function() {
+           console.log("ini data: ",$(this).find("option:selected").text());
+          $("#nama_city").val($(this).find("option:selected").text());
         var val = $(this).val();
         // alert(val);
         $.ajax({
@@ -94,7 +100,7 @@ $(function () {
          var subtotal = parseInt($('#subtotal').attr('data'));
          var ongkir = parseInt($(this).val());
          var total = parseInt(subtotal) + parseInt(ongkir);
-
+$('#ongk').val(ongkir);
          $('#ongkir').html('Rp. ' + ongkir.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,"));
          $('#total-value').html(total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,"));
      });
